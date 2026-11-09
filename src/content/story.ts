@@ -64,7 +64,11 @@ export const story: Story = {
         { type: 'pause' },
         {
           type: 'paragraph',
-          text: 'Quando eu te conheci, sinceramente, eu nunca imaginei que um dia a gente chegaria até aqui. Eu te conheci por meio da Sarah, e naquele momento eu te enxergava como uma amiga que estava chegando na minha vida. Não passava pela minha cabeça que, algum tempo depois, você se tornaria alguém tão especial pra mim. Eu não tinha planos, não tinha expectativas, não ficava imaginando nada do que poderia acontecer entre a gente. Se alguém me dissesse, naquela época, que um dia eu estaria fazendo um site inteiro só pra conseguir te dizer o que eu sinto, eu provavelmente nem acreditaria.',
+          text: 'Quando eu te conheci, sinceramente, eu nunca imaginei que um dia a gente chegaria até aqui. Tudo começou no Avakin Life, de um jeito tão simples que eu nem tinha como imaginar onde ia dar. Lá eu conheci a Sarah primeiro, e foi ela que, depois, te apresentou pra mim. Naquele momento eu te enxergava como uma amiga que estava chegando na minha vida. Não passava pela minha cabeça que, algum tempo depois, você se tornaria alguém tão especial pra mim. Eu não tinha planos, não tinha expectativas, não ficava imaginando nada do que poderia acontecer entre a gente. Se alguém me dissesse, naquela época, que um jogo ia acabar me levando a fazer um site inteiro só pra conseguir te dizer o que eu sinto, eu provavelmente nem acreditaria.',
+        },
+        {
+          type: 'paragraph',
+          text: 'E eu lembro que, naquela época, você estava em um relacionamento. Eu via o quanto você se dedicava, o quanto fazia de tudo por ele, o quanto se entregava de verdade. E via também que nem sempre isso era recebido com o cuidado que você merecia. Eu sei que foi um período em que você foi machucada por dentro, de um jeito que deixou marcas. Não falo disso pra mexer numa ferida, nem pra falar mal de ninguém. Falo porque isso faz parte da sua história, e porque eu quero que você saiba que eu enxergo o tamanho do coração de quem é capaz de amar daquele jeito. O problema nunca foi você ter se entregado demais. Você só merecia ter sido cuidada na mesma medida.',
         },
         {
           type: 'paragraph',
