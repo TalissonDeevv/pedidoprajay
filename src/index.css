@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", "Iowan Old Style", "Times New Roman", serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ───────────────────────── Paleta e temas ─────────────────────────
+   Para trocar as cores do site, altere os valores abaixo.            */
+html[data-theme="night"] {
+  --bg: #0d0b0a;
+  --fg: #f1ebe1;
+  --muted: #a69e92;
+  --accent: #cdb68e;
+  --rule: rgb(241 235 225 / 0.14);
+}
+html[data-theme="paper"] {
+  --bg: #f4eee5;
+  --fg: #1a1614;
+  --muted: #5d554c;
+  --accent: #7b5f31;
+  --rule: rgb(26 22 20 / 0.14);
+}
+html[data-theme="sand"] {
+  --bg: #e6dac7;
+  --fg: #1a1614;
+  --muted: #554c42;
+  --accent: #6b1e24;
+  --rule: rgb(26 22 20 / 0.16);
+}
+html[data-theme="wine"] {
+  --bg: #150b0c;
+  --fg: #f2e8df;
+  --muted: #b3a298;
+  --accent: #d2b68c;
+  --rule: rgb(242 232 223 / 0.14);
+}
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  transition: background-color 1.2s var(--ease-cinema), color 1.2s var(--ease-cinema);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--bg);
+  transition: background-color 1.2s var(--ease-cinema);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* ───────────────────────── Tipografia ───────────────────────── */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  font-size: clamp(2.6rem, 9vw, 5.75rem);
+  text-wrap: balance;
+}
+.display em,
+.serif em {
+  font-style: italic;
+  color: var(--accent);
+}
+.serif {
+  font-family: var(--font-serif);
+}
+.body-text {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: color-mix(in oklab, var(--fg) 86%, var(--bg));
+  text-wrap: pretty;
+}
+@media (min-width: 768px) {
+  .body-text {
+    font-size: 1.125rem;
+  }
+}
+.letter-text {
+  /* texto corrido, ocupando a largura toda, da esquerda pra direita */
+  font-size: clamp(1.0625rem, 0.98rem + 0.3vw, 1.25rem);
+  line-height: 1.85;
+  color: color-mix(in oklab, var(--fg) 90%, var(--bg));
+  text-wrap: pretty;
+  hyphens: manual;
+}
+.letter-text.dropcap::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-size: 4.6em;
+  line-height: 0.8;
+  margin: 0.08em 0.12em 0 0;
+  color: var(--accent);
+}
+.hairline {
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ───────────────────────── Botões ───────────────────────── */
+.btn-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 3rem;
+  padding: 0.5rem 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.btn-next .line {
+  display: block;
+  height: 1px;
+  width: 2.5rem;
+  background: var(--accent);
+  transition: width 0.6s var(--ease-cinema);
+}
+.btn-next svg {
+  color: var(--accent);
+  transition: transform 0.6s var(--ease-cinema);
+}
+.btn-next:hover .line,
+.btn-next:focus-visible .line {
+  width: 4.5rem;
+}
+.btn-next:hover svg,
+.btn-next:focus-visible svg {
+  transform: translateX(4px);
+}
+
+.btn-quiet {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 6px;
+  transition: color 0.4s, text-decoration-color 0.4s;
+}
+.btn-quiet:hover,
+.btn-quiet:focus-visible {
+  color: var(--fg);
+  text-decoration-color: var(--accent);
+}
+
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 6px;
+}
+[tabindex="-1"]:focus {
+  outline: none;
+}
+
+/* ───────────────────────── Textura ───────────────────────── */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ───────────────────────── Player ───────────────────────── */
+.eq {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+.eq i {
+  display: block;
+  width: 2px;
+  height: 3px;
+  background: var(--accent);
+  transition: height 0.4s;
+}
+.eq[data-playing="true"] i {
+  animation: eq 1.4s ease-in-out infinite;
+}
+.eq i:nth-child(2) {
+  animation-delay: -0.5s !important;
+}
+.eq i:nth-child(3) {
+  animation-delay: -0.9s !important;
+}
+@keyframes eq {
+  0%, 100% { height: 3px; }
+  50% { height: 12px; }
+}
+
+.volume {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 4.5rem;
+  height: 1.75rem;
+  background: transparent;
+  cursor: pointer;
+}
+.volume::-webkit-slider-runnable-track {
+  height: 1px;
+  background: linear-gradient(to right, var(--accent) var(--v), var(--rule) var(--v));
+}
+.volume::-moz-range-track {
+  height: 1px;
+  background: linear-gradient(to right, var(--accent) var(--v), var(--rule) var(--v));
+}
+.volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 9px;
+  height: 9px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: var(--fg);
+  border: 0;
+}
+.volume::-moz-range-thumb {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--fg);
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    transition-duration: 0.01ms;
+  }
+  .eq[data-playing="true"] i {
+    animation: none;
+    height: 8px;
+  }
+  .btn-next .line,
+  .btn-next svg {
+    transition: none;
+  }
+}
